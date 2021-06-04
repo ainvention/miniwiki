@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/wikis",
+      "handler": "wiki.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/wikis/count",
+      "handler": "wiki.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/wikis/:id",
+      "handler": "wiki.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/wikis",
+      "handler": "wiki.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/wikis/:id",
+      "handler": "wiki.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/wikis/:id",
+      "handler": "wiki.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

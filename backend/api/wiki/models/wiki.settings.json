@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wikis",
+  "info": {
+    "name": "wiki",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "users_permissions_users": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    },
+    "first_author": {
+      "type": "string"
+    },
+    "last_edited_author": {
+      "type": "string"
+    }
+  }
+}
