@@ -27,6 +27,8 @@ https://60b7479217d1dc0017b897a2.mockapi.io/api/v1/
 
 > /mini-wiki/backend$ npm run develop
 > /mini-wiki/client$ npm run start
+
+// then, access to http://localhost:1337/admin
 ```
 
 ## These features currently in development

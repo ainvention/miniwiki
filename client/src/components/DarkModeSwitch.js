@@ -2,7 +2,7 @@ import { useState } from "react";
 import Switch from "@material-ui/core/Switch";
 
 function DarkModeSwitch() {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(true);
 
   const toggleDarkMode = () => {
     setSelected(!selected);
@@ -17,12 +17,11 @@ function DarkModeSwitch() {
   };
   return (
     <div>
-      <span className="dark:text-gray-300">Dark mode</span>
+      <span className="dark:text-gray-300">{selected ? "Dark" : "Light"}</span>
       <Switch
         checked={selected}
         onChange={() => {
           toggleDarkMode();
-          console.log(selected);
         }}
         name="darkmode-switch"
         inputProps={{ "aria-label": "secondary checkbox" }}
