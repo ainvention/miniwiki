@@ -7,6 +7,7 @@ export default function WikiInput({
   submitForm,
   titleInputRef,
   imageInputRef,
+  contentInputRef,
   marktext,
   setMarktext,
   loading,
@@ -33,6 +34,7 @@ export default function WikiInput({
           value={marktext}
           onChange={setMarktext}
           className="flex-1 h-full p-2 my-4 border-2 border-gray-200 border-solid dark:bg-gray-600 dark:text-gray-200"
+          ref={contentInputRef}
           disabled={loading}
           required
         />
