@@ -18,27 +18,30 @@
     "content": {
       "type": "richtext"
     },
-    "image": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
-    },
     "users_permissions_users": {
       "plugin": "users-permissions",
-      "collection": "user"
+      "collection": "user",
+      "via": "wikis",
+      "dominant": true
     },
     "first_author": {
       "type": "string"
     },
     "last_edited_author": {
       "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

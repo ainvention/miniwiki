@@ -33,7 +33,7 @@ function Home() {
     if (user) {
       fetchWikis();
     } else {
-      return;
+      return null;
     }
   }, []);
 

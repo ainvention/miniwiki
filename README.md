@@ -8,8 +8,8 @@
 ## Dependencies injection
 
 ```sh
-/mini-wiki/backend$ yarn or npm install
-/mini-wiki/client$ yarn or npm install
+/mini-wiki/backend$ npm install
+/mini-wiki/client$ npm install
 ```
 
 ## Run Code
@@ -25,8 +25,8 @@ https://60b7479217d1dc0017b897a2.mockapi.io/api/v1/
 ```sh
 ### 2. Use backend with Strapi
 
-> /mini-wiki/backend$ yarn start or yarn develop
-> /mini-wiki/client$ yarn start
+> /mini-wiki/backend$ npm run develop
+> /mini-wiki/client$ npm run start
 ```
 
 ## These features currently in development

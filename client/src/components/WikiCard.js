@@ -28,21 +28,15 @@ const WikiCard = ({ wiki, URL }) => {
             <Typography variant="h4" component="h2">
               {wiki.title}
             </Typography>
-            <img
-              src={URL + wiki.image.url}
-              alt="author_avatar"
-              className="w-40 h-40"
-            />
+            <img src={wiki.image} alt="author_avatar" className="w-40 h-40" />
           </div>
           <Typography className="flex flex-row" color="textSecondary">
             <div className="flex flex-col w-full mx-2">
               <span className="text-lg font-bold">
-                Author: {wiki.first_author}
-              </span>
-              <span className="text-lg font-bold">
                 Last edited by: {wiki.last_edited_author}
               </span>
-              Last update: {dateFormat(wiki.created, "dS mmm yyyy, h:MM:ss TT")}
+              Last update:{" "}
+              {dateFormat(wiki.created_at, "dS mmm yyyy, h:MM:ss TT")}d
             </div>
           </Typography>
           {showContent && (

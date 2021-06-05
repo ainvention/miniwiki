@@ -8,7 +8,7 @@ import Collapse from "@material-ui/core/Collapse";
 import ListItem from "@material-ui/core/ListItem";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function SidebarMenu() {
   const [open, setOpen] = useState(true);
