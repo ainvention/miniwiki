@@ -44,10 +44,11 @@ function Login() {
 
   return (
     <form
-      className="flex flex-col justify-center w-64 p-2 m-2 align-middle"
+      className="flex flex-col justify-center p-2 m-4 space-y-2 align-middle border-2 border-gray-300 border-solid"
       onSubmit={handleSubmit}
     >
       <TextField
+        fullWidth="true"
         label="Email"
         variant="filled"
         type="email"
@@ -56,6 +57,7 @@ function Login() {
         onChange={(e) => setEmail(e.target.value)}
       />
       <TextField
+        className="dark:text-gray-300"
         label="Password"
         variant="filled"
         type="password"
@@ -70,7 +72,12 @@ function Login() {
         </Alert>
       )}
       <div>
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+          className="dark:bg-red-900"
+        >
           Signup
         </Button>
       </div>
