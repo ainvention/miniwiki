@@ -21,17 +21,17 @@ const WikiCard = ({ wiki, URL }) => {
         disableTouchListener
       >
         <CardContent
-          className="space-y-4"
+          className="space-y-4 dark:bg-gray-700"
           onClick={() => setShowContent(!showContent)}
         >
-          <div className="space-y-4">
+          <div className="space-y-4 ">
             <Typography variant="h4" component="h2">
               {wiki.title}
             </Typography>
             <img src={wiki.image} alt="author_avatar" className="w-40 h-40" />
           </div>
           <Typography className="flex flex-row" color="textSecondary">
-            <div className="flex flex-col w-full mx-2">
+            <div className="flex flex-col w-full mx-2 ">
               <span className="text-lg font-bold">
                 Last edited by: {wiki.last_edited_author}
               </span>
@@ -40,8 +40,11 @@ const WikiCard = ({ wiki, URL }) => {
             </div>
           </Typography>
           {showContent && (
-            <div className="p-4 bg-gray-100">
-              <MDEditor.Markdown source={wiki.content} />
+            <div className="p-4 bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+              <MDEditor.Markdown
+                source={wiki.content}
+                className="dark:text-gray-300"
+              />
             </div>
           )}
         </CardContent>

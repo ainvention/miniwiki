@@ -16,7 +16,7 @@ export default function WikiInput({
       <form onSubmit={submitForm} className="flex flex-col w-full">
         <Input
           type="text"
-          className="rounded-l-lg"
+          className="rounded-l-lg dark:text-gray-200"
           placeholder="Title"
           ref={titleInputRef}
           disabled={loading}
@@ -24,7 +24,7 @@ export default function WikiInput({
         />
         <Input
           type="text"
-          className="rounded-r-lg"
+          className="rounded-r-lg dark:text-gray-200"
           placeholder="Image URL.. ex) https://www.google.com/images/272x92dp.png"
           ref={imageInputRef}
           disabled={loading}
@@ -32,7 +32,7 @@ export default function WikiInput({
         <MDEditor
           value={marktext}
           onChange={setMarktext}
-          className="flex-1 h-full p-2 my-4 border-2 border-gray-200 border-solid"
+          className="flex-1 h-full p-2 my-4 border-2 border-gray-200 border-solid dark:bg-gray-600 dark:text-gray-200"
           disabled={loading}
           required
         />
@@ -41,6 +41,7 @@ export default function WikiInput({
           variant="contained"
           color="secondary"
           disabled={loading}
+          className="dark:bg-red-800"
         >
           {loading && <LoadingSpinner className="spinner" />}
           {loading ? "Adding" : "Confirm"}

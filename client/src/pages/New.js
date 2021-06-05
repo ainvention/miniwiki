@@ -60,37 +60,6 @@ function New() {
         console.log("An error occurred during in the post a wiki:", e.response);
       });
   };
-  // const submitForm = async (e) => {
-  //   e.preventDefault();
-
-  //   if (title === "" || image === "" || content === "") return;
-
-  //   setLoading(true);
-
-  //   try {
-  //     const res = await fetch(
-  //       wikiApi + "/wikis",
-  //       {
-  //         method: "POST",
-  //         body: JSON.stringify({ title, image, content, first_author }),
-  //         headers: { "Content-Type": "application/json" },
-  //       }
-  //     );
-
-  //     const data = await res.json();
-  //     dispatch(addWiki(data));
-
-  //     titleInputRef.current.value = "";
-  //     imageInputRef.current.value = "";
-  //     contentInputRef.current.value = "";
-
-  //     setMarktext("");
-  //   } catch (err) {
-  //     console.log(err);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   return (
     <div>

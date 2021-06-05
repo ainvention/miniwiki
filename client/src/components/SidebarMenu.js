@@ -20,7 +20,7 @@ function SidebarMenu() {
   return (
     <div>
       {user ? (
-        <div className="flex flex-col items-start h-auto text-xl text-white sm:h-full sm:flex-col">
+        <div className="flex flex-col items-start h-auto text-xl text-white sm:h-full sm:flex-col dark:bg-gray-700">
           <ListItem
             button
             onClick={handleClick}
