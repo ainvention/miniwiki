@@ -38,6 +38,9 @@ function Login() {
       })
       .catch((e) => {
         // Handle error.
+        alert(
+          "Please set the backend. 1. open another CLI, then $>/miniwiki/backend 'npm run develop'"
+        );
         console.log("An error occurred:", e.response);
       });
   };

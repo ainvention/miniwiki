@@ -29,6 +29,11 @@ https://60b7479217d1dc0017b897a2.mockapi.io/api/v1/
 > /mini-wiki/client$ npm run start
 
 // then, access to http://localhost:1337/admin
+
+Login with...
+ex)
+email: 'alexinvention@gmail.com'
+password: 'Alex1234'
 ```
 
 ## These features currently in development

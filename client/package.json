@@ -1,6 +1,5 @@
 {
-  "name": "mini-wiki",
-  "homepage": "https://ainvention.github.io/mini-wiki/",
+  "name": "mini-wikis",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
