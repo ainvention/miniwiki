@@ -3,7 +3,7 @@ import WikiCard from "./WikiCard";
 export default function WikiList({ wikis, loading, URL }) {
   return (
     <div>
-      <div className="flex justify-start mb-10 text-2xl font-bold align-middle lg:text-5xl">
+      <div className="flex justify-center mb-10 text-4xl font-bold align-middle sm:justify-start lg:text-5xl">
         Mini Wiki
       </div>
 

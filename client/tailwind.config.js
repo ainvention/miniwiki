@@ -39,4 +39,7 @@ module.exports = {
     },
   },
   plugins: [],
+  corePlugins: {
+    wordBreak: true,
+  },
 };

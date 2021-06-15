@@ -29,7 +29,7 @@ function Home() {
       });
   };
 
-  useEffect(() => {
+  useEffect((user) => {
     if (user) {
       fetchWikis();
     } else {
@@ -38,7 +38,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col mb-40">
       {user ? (
         <WikiList wikis={wikis} loading={loading} URL={URL} />
       ) : (

@@ -15,7 +15,9 @@ function LoginChecker() {
     <div>
       {user ? (
         <div className="flex flex-col items-center sm:flex-row">
-          <p className="dark:text-gray-400">Hei, {user.email}</p>
+          <p className=" dark:text-gray-400">
+            Hei, <span className="uppercase">{user.username}</span>
+          </p>
           <Button
             color="secondary"
             onClick={() => {

@@ -8,6 +8,8 @@ import Home from "../pages/Home";
 import New from "../pages/New";
 import Settings from "../pages/Settings";
 import Login from "../pages/Login";
+import Details from "../components/Details";
+import Edit from "../pages/Edit";
 
 export const routes = [
   {
@@ -21,7 +23,7 @@ export const routes = [
         </Button>
       </Link>
     ),
-    main: () => <Home />,
+    main: (props) => <Home {...props} />,
   },
   {
     path: "/new",
@@ -33,7 +35,7 @@ export const routes = [
         </Button>
       </Link>
     ),
-    main: () => <New />,
+    main: (props) => <New {...props} />,
   },
   {
     path: "/settings",
@@ -45,12 +47,20 @@ export const routes = [
         </Button>
       </Link>
     ),
-    main: () => <Settings />,
+    main: (props) => <Settings {...props} />,
   },
   {
     path: "/login",
     sidebar: () => <div>Login</div>,
-    main: () => <Login />,
+    main: (props) => <Login {...props} />,
+  },
+  {
+    path: "/details/:id",
+    main: (props) => <Details {...props} />,
+  },
+  {
+    path: "/edit/:id",
+    main: (props) => <Edit {...props} />,
   },
 ];
 

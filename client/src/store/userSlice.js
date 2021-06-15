@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Redirect } from "react-router-dom";
 
-const initialUser = localStorage.getItem("user")
-  ? JSON.parse(localStorage.getItem("user"))
+const initialUser = sessionStorage.getItem("user")
+  ? JSON.parse(sessionStorage.getItem("user"))
   : null;
 
 // Slice
@@ -14,11 +14,11 @@ const userSlice = createSlice({
   reducers: {
     loginSuccess: (state, action) => {
       state.user = action.payload;
-      localStorage.setItem("user", JSON.stringify(action.payload));
+      sessionStorage.setItem("user", JSON.stringify(action.payload));
     },
     logoutSuccess: (state, action) => {
       state.user = null;
-      localStorage.removeItem("user");
+      sessionStorage.removeItem("user");
     },
   },
 });

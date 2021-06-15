@@ -4,15 +4,14 @@ import { Redirect } from "react-router-dom";
 import wikiApi from "../apis/wikiApi";
 import Alert from "@material-ui/lab/Alert";
 import { LoadingSpinner } from "../assets/icons";
-import { Button } from "@material-ui/core";
-import Input from "@material-ui/core/Input";
+import { Button, TextField } from "@material-ui/core";
 import MDEditor from "@uiw/react-md-editor";
 
 function New() {
   const { user } = useSelector((state) => state.user);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const [marktext, setMarktext] = useState("");
+  const [markText, setMarkText] = useState("");
   const titleInputRef = useRef("");
   const imageInputRef = useRef("");
   let firstAuthor = "";
@@ -24,7 +23,7 @@ function New() {
       firstAuthor = user.username;
     }
 
-    if (titleInputRef === "" || imageInputRef === "" || marktext === "") return;
+    if (titleInputRef === "" || imageInputRef === "" || markText === "") return;
     setLoading(true);
 
     // Server response timeout manually checking with <Alert/> component.
@@ -42,14 +41,14 @@ function New() {
       .post("/wikis", {
         title: titleInputRef.current.value,
         image: imageInputRef.current.value,
-        content: marktext,
+        content: markText,
         first_author: firstAuthor,
       })
       .then((response) => {
         setLoading(false);
         titleInputRef.current.value = "";
         imageInputRef.current.value = "";
-        setMarktext("");
+        setMarkText("");
       })
       .catch((e) => {
         if (e.response) {
@@ -70,25 +69,33 @@ function New() {
               Posting error!! try again or contact administrator.
             </Alert>
           )}
+          <div className="mb-2 sm:mb-10">
+            <span className="mb-20 text-2xl font-bold text-gray-600 dark:text-gray-300">
+              Edd New Wiki
+            </span>
+          </div>
           <form onSubmit={submitForm} className="flex flex-col w-full">
-            <Input
+            <TextField
+              label="Title"
               type="text"
               className="rounded-l-lg dark:text-gray-200"
-              placeholder="Title"
+              placeholder="type this subject"
               inputRef={titleInputRef}
               disabled={loading}
               required
             />
-            <Input
+            <TextField
+              label="Image Url"
               type="text"
               className="rounded-r-lg dark:text-gray-200"
-              placeholder="Image URL.. ex) https://www.google.com/images/272x92dp.png"
+              placeholder="type image URL.. ex) https://www.google.com/images/272x92dp.png"
               inputRef={imageInputRef}
               disabled={loading}
             />
             <MDEditor
-              value={marktext}
-              onChange={setMarktext}
+              label="Content"
+              value={markText}
+              onChange={setMarkText}
               className="flex-1 h-full p-2 my-4 border-2 border-gray-200 border-solid dark:bg-gray-600 dark:text-gray-200"
               disabled={loading}
               required

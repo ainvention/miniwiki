@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, useLocation } from "react-router-dom";
 import routes from "./utilities/routes";
 
 import "./index.css";
@@ -8,8 +7,11 @@ import SidebarMenu from "./components/SidebarMenu";
 import DarkModeSwitch from "./components/DarkModeSwitch";
 import LoginChecker from "./components/LoginChecker";
 import Logo from "./components/Logo";
+import { useSelector } from "react-redux";
 
 function App() {
+  let location = useLocation();
+  const { wikis } = useSelector((state) => state.wikis);
   return (
     <div className="flex h-screen dark:bg-gray-800">
       <div className="flex flex-col flex-1 overflow-hidden">
@@ -24,7 +26,7 @@ function App() {
         </header>
         <div className="flex flex-col h-full lg:flex-row">
           <nav className="flex w-full h-auto bg-gray-600 lg:w-72 lg:h-full">
-            <div className="w-full px-4 py-8 mx-auto dark:bg-gray-700">
+            <div className="flex w-full px-4 mx-auto dark:bg-gray-700">
               <SidebarMenu />
             </div>
           </nav>
@@ -36,7 +38,7 @@ function App() {
                     <div className="flex flex-row mx-4 font-bold text-blue-600 dark:text-blue-500">
                       <Link to="/">Home</Link>
                       {route.path !== "/" && (
-                        <Link to={route.path}>{route.path}</Link>
+                        <Link to={location.pathname}>{location.pathname}</Link>
                       )}
                     </div>
                     <br />
@@ -46,7 +48,7 @@ function App() {
               <div>
                 {routes.map((route) => (
                   <Route key={route.path} path={route.path} exact={route.exact}>
-                    <route.main />
+                    <route.main wikis={wikis} />
                   </Route>
                 ))}
               </div>

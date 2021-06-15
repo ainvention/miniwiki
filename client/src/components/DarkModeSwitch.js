@@ -2,24 +2,24 @@ import { useState, useEffect } from "react";
 import Switch from "@material-ui/core/Switch";
 
 function DarkModeSwitch() {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(false);
 
   const toggleDarkMode = () => {
     let htmlClasses = document.querySelector("html").classList;
 
-    if (localStorage.theme === "dark") {
+    if (sessionStorage.theme === "dark") {
       htmlClasses.remove("dark");
-      localStorage.removeItem("theme");
+      sessionStorage.removeItem("theme");
       setSelected(false);
     } else {
       htmlClasses.add("dark");
-      localStorage.theme = "dark";
+      sessionStorage.theme = "dark";
       setSelected(true);
     }
   };
 
   useEffect(() => {
-    localStorage.setItem("theme", "dark");
+    sessionStorage.setItem("theme", "dark");
     toggleDarkMode();
   }, []);
 

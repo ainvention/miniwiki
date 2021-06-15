@@ -27,7 +27,7 @@ function SidebarMenu() {
             alignItems="center"
             className="flex"
           >
-            <p className="flex mb-4 text-2xl font-bold">Menu</p>
+            <p className="flex text-2xl font-bold">Menu</p>
             {open ? (
               <ExpandLess className="self-start" />
             ) : (
@@ -58,11 +58,11 @@ function SidebarMenu() {
           </Collapse>
         </div>
       ) : (
-        <div className="flex-col text-white">
+        <div className="flex-col mt-6 text-white">
           <p>Please Login with..</p>
           <hr className="my-2" />
           <p>email: sara@sara.io</p>
-          <p>password: Alex1234</p>
+          <p>password: Sara1234</p>
         </div>
       )}
     </div>

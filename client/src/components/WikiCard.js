@@ -1,56 +1,60 @@
 import { useState } from "react";
-
+import { Link, useParams } from "react-router-dom";
 import dateFormat from "dateformat";
-
-import MDEditor from "@uiw/react-md-editor";
 
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
-import Divider from "@material-ui/core/Divider";
 
 const WikiCard = ({ wiki, URL }) => {
   const [showContent, setShowContent] = useState(false);
+  const { id } = useParams();
+
+  let detailPageData = {
+    pathname: `/details/${wiki.id}`,
+    state: { wiki: wiki },
+  };
+
+  if (id) {
+    detailPageData = {
+      pathname: `/details/${id}`,
+      state: { wiki: wiki, id: id },
+    };
+  }
+
   return (
-    <Card className="w-full my-2" key={wiki.id}>
-      <Tooltip
-        title="Learn More"
-        placement="bottom-start"
-        disableFocusListener
-        disableTouchListener
-      >
-        <CardContent
-          className="space-y-4 dark:bg-gray-700"
-          onClick={() => setShowContent(!showContent)}
-        >
-          <div className="space-y-4 ">
-            <Typography variant="h4" component="h2">
-              {wiki.title}
-            </Typography>
-            <img src={wiki.image} alt="author_avatar" className="w-40 h-40" />
-          </div>
-          <Typography className="flex flex-row" color="textSecondary">
-            <div className="flex flex-col w-full mx-2 ">
-              <span className="text-lg font-bold">
-                Last edited by: {wiki.last_edited_author}
-              </span>
-              Last update:{" "}
-              {dateFormat(wiki.created_at, "dS mmm yyyy, h:MM:ss TT")}d
-            </div>
-          </Typography>
-          {showContent && (
-            <div className="p-4 bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
-              <MDEditor.Markdown
-                source={wiki.content}
-                className="dark:text-gray-300"
-              />
-            </div>
-          )}
-        </CardContent>
-      </Tooltip>
-      <Divider />
-    </Card>
+    <div className="w-full">
+      <Link to={detailPageData}>
+        <Card className="w-full p-1 my-2 dark:bg-gray-500 sm:p-2" key={wiki.id}>
+          <Tooltip
+            title="Learn More"
+            placement="bottom-start"
+            disableFocusListener
+            disableTouchListener
+          >
+            <CardContent
+              className="p-2 space-y-4 rounded-md dark:bg-gray-400"
+              onClick={() => setShowContent(!showContent)}
+            >
+              <Typography variant="h4">{wiki.title}</Typography>
+              <div className="flex flex-col w-full mx-2 space-y-2 ">
+                <img
+                  src={wiki.image}
+                  alt="wiki"
+                  className="w-40 h-40 rounded-md"
+                />
+                <span className="text-lg font-bold">
+                  Last edited by: {wiki.last_edited_author}
+                </span>
+                Last update:{" "}
+                {dateFormat(wiki.created_at, "dS mmm yyyy, h:MM:ss TT")}
+              </div>
+            </CardContent>
+          </Tooltip>
+        </Card>
+      </Link>
+    </div>
   );
 };
 

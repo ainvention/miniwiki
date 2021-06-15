@@ -15,15 +15,7 @@
 ## Run Code
 
 ```sh
-### 1.  Use backend with mockapi.io
-// Please replace URL on .env file with below link.
-// path: $/mini-wiki/client/.env
-
-https://60b7479217d1dc0017b897a2.mockapi.io/api/v1/
-```
-
-```sh
-### 2. Use backend with Strapi
+### 1. Use backend with Strapi
 
 > /mini-wiki/backend$ npm run develop
 > /mini-wiki/client$ npm run start
@@ -32,13 +24,13 @@ https://60b7479217d1dc0017b897a2.mockapi.io/api/v1/
 
 Login with...
 ex)
-email: 'alexinvention@gmail.com'
-password: 'Alex1234'
+email: 'admin@admin.io'
+password: 'Admin1234'
 ```
 
 ## These features currently in development
 
 1. ~~Darkmode~~
-2. Update a wiki
+2. ~~Update a wiki~~
 3. need more refactoring about natural separation for state-management, business and presentational components
-4. searchable using a search-engine
+4. searchable using a search-engine by Algolia or ElasticSearch

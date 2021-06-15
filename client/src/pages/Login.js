@@ -39,7 +39,7 @@ function Login() {
       .catch((e) => {
         // Handle error.
         alert(
-          "Please set the backend. 1. open another CLI, then $>/miniwiki/backend 'npm run develop'"
+          "Please set the backend firstly. 1. open another CLI, then $>/miniwiki/backend 'npm run develop'"
         );
         console.log("An error occurred:", e.response);
       });
@@ -47,7 +47,7 @@ function Login() {
 
   return (
     <form
-      className="flex flex-col justify-center p-2 m-4 space-y-2 align-middle border-2 border-gray-300 border-solid"
+      className="flex flex-col justify-center p-2 m-4 space-y-2 align-middle border-2 border-gray-300 border-solid w-80"
       onSubmit={handleSubmit}
     >
       <TextField

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialWikis = localStorage.getItem("wikis")
-  ? JSON.parse(localStorage.getItem("wikis"))
+const initialWikis = sessionStorage.getItem("wikis")
+  ? JSON.parse(sessionStorage.getItem("wikis"))
   : null;
 
 export const wikiSlice = createSlice({
