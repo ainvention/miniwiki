@@ -39,7 +39,7 @@ function Login() {
       .catch((e) => {
         // Handle error.
         alert(
-          "Please set the backend firstly. 1. open another CLI, then $>/miniwiki/backend 'npm run develop'"
+          "Please check your credential OR set the backend firstly. 1. open another CLI, then $>/miniwiki/backend 'npm run develop'"
         );
         console.log("An error occurred:", e.response);
       });

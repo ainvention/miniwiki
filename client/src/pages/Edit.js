@@ -1,17 +1,22 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import wikiApi from "../apis/wikiApi";
 import { Button, TextField } from "@material-ui/core";
 import MDEditor from "@uiw/react-md-editor";
 import { LoadingSpinner } from "../assets/icons";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
-function Edit({ wikis, params }) {
+function Edit({ wikis, params, props }) {
+  const history = useHistory();
   const { id } = useParams();
-  const [wiki, setWiki] = useState({});
   const [loading, setLoading] = useState(false);
-  const [markText, setMarkText] = useState("");
-  const titleInputRef = useRef("");
-  const imageInputRef = useRef("");
+
+  const initialWiki = {
+    title: "",
+    image: "",
+    content: "",
+  };
+
+  const [wiki, setWiki] = useState(initialWiki);
 
   const fetchWikis = async () => {
     // setLoading(true);
@@ -28,21 +33,17 @@ function Edit({ wikis, params }) {
 
   const submitForm = async (e) => {
     e.preventDefault();
-
     // const wiki = wikis
     wikiApi
       .put(`/wikis/${wiki.id}`, {
-        title: titleInputRef.current.value,
-        image: imageInputRef.current.value,
-        content: markText,
+        title: wiki.title,
+        image: wiki.image,
+        content: wiki.content,
       })
       .then((response) => {
         setLoading(false);
-        titleInputRef.current.value = "";
-        imageInputRef.current.value = "";
-        setMarkText("");
         window.alert("Edit success!");
-        console.log("success");
+        return history.push(`/details/${id}`);
       })
       .catch((e) => {
         if (e.response) {
@@ -52,16 +53,15 @@ function Edit({ wikis, params }) {
   };
 
   // Cases of access ways that
-  // 1. from details page with the param
+  // 1. from details page with the parameter wikis
   // 2. from directly typed URL to edit a specific content by id
   useEffect(() => {
     if (wikis) {
       setWiki(() => {
-        wikis.find((p) => p.id == id);
+        return wikis.find((p) => p.id == id);
       });
-    } else if (params) {
-      setWiki(params.wiki);
     }
+    //in case of directly page access with id: "/edit/id"
     return fetchWikis();
   }, []);
 
@@ -74,24 +74,44 @@ function Edit({ wikis, params }) {
       </div>
       <form onSubmit={submitForm} className="flex flex-col w-full">
         <TextField
-          type="text"
+          value={wiki.title}
+          onChange={(e) =>
+            setWiki((prevWiki) => {
+              return {
+                ...prevWiki,
+                title: e.target.value,
+              };
+            })
+          }
           className="rounded-l-lg dark:text-gray-200"
-          placeholder={wiki.title}
-          inputRef={titleInputRef}
           disabled={loading}
           required
         />
         <TextField
-          type="text"
+          value={wiki.image}
+          onChange={(e) =>
+            setWiki((prevWiki) => {
+              return {
+                ...prevWiki,
+                image: e.target.value,
+              };
+            })
+          }
           className="rounded-r-lg dark:text-gray-200"
-          placeholder={wiki.image}
-          inputRef={imageInputRef}
           disabled={loading}
+          required
         />
         <MDEditor
           label="Content"
-          value={markText}
-          onChange={setMarkText}
+          value={wiki.content}
+          onChange={(e) =>
+            setWiki((prevWiki) => {
+              return {
+                ...prevWiki,
+                content: e,
+              };
+            })
+          }
           className="flex-1 h-full p-2 my-4 border-2 border-gray-200 border-solid dark:bg-gray-600 dark:text-gray-200"
           disabled={loading}
           required

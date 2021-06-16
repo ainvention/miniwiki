@@ -1,8 +1,6 @@
 import { Route, Link, useLocation } from "react-router-dom";
 import routes from "./utilities/routes";
 
-import "./index.css";
-
 import SidebarMenu from "./components/SidebarMenu";
 import DarkModeSwitch from "./components/DarkModeSwitch";
 import LoginChecker from "./components/LoginChecker";

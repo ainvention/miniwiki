@@ -29,9 +29,9 @@ function Home() {
       });
   };
 
-  useEffect((user) => {
+  useEffect(() => {
     if (user) {
-      fetchWikis();
+      return fetchWikis();
     } else {
       return null;
     }

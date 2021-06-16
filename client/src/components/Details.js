@@ -40,11 +40,11 @@ function Details({ params, wikis }) {
   useEffect(() => {
     if (wikis) {
       setWiki(() => {
-        wikis.find((p) => p.id == id);
+        return wikis.find((p) => p.id == id);
       });
     } else if (params) {
       console.log(params);
-      setWiki(params.wiki);
+      return setWiki(params.wiki);
     }
     return fetchWikis();
   }, []);
