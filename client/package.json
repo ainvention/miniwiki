@@ -31,7 +31,7 @@
     "sanitize-html": "2.4.0"
   },
   "scripts": {
-    "start": "craco start && postcss src/css/app.css -o public/app.css",
+    "start": "craco start && postcss src/index.css -o public/app.css",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",

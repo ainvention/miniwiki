@@ -5,7 +5,7 @@ function DarkModeSwitch() {
   const [selected, setSelected] = useState(false);
 
   const toggleDarkMode = () => {
-    let htmlClasses = document.querySelector("html").classList;
+    const htmlClasses = document.querySelector("html").classList;
 
     if (sessionStorage.theme === "dark") {
       htmlClasses.remove("dark");

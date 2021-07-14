@@ -15,7 +15,7 @@ function App() {
       <div className="flex flex-col flex-1 overflow-hidden">
         <header className="flex flex-col items-center justify-between p-4 sm:flex-row">
           <Logo />
-          <div className="flex flex-col mt-4 align-middle sm:mt-0 sm:flex-row">
+          <div className="flex flex-row items-stretch mt-4 space-x-10 sm:mt-0">
             {/* Dark mode Switch */}
             <DarkModeSwitch />
             {/* user login checker */}

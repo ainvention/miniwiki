@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 export default function Settings() {
   const { user } = useSelector((state) => state.user);
-  let URL = process.env.REACT_APP_URL_STRAPI;
+  const URL = process.env.REACT_APP_URL_STRAPI;
 
   // if (!user) {
   //   return <div>User not exist.</div>;

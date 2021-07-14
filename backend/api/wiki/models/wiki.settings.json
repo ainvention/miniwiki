@@ -32,6 +32,32 @@
     },
     "image": {
       "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "ShareImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.share-image"
+    },
+    "keywords": {
+      "type": "text"
+    },
+    "preventIndexing": {
+      "type": "boolean",
+      "default": false
+    },
+    "RelatedWikis": {
+      "type": "component",
+      "repeatable": false,
+      "component": "wikis.related-wikis"
     }
   }
 }

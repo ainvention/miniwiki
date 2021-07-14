@@ -11,7 +11,7 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import { useSelector } from "react-redux";
 
 function SidebarMenu() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const { user } = useSelector((state) => state.user);
   const handleClick = () => {
     setOpen(!open);
@@ -37,19 +37,34 @@ function SidebarMenu() {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <div className="flex flex-col sm:flex-col">
               <Link to="/">
-                <Button className="flex w-full">
+                <Button
+                  className="flex w-full"
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
                   <ListIcon className="mr-2 text-white" />
                   <p className="text-white">Wiki list</p>
                 </Button>
               </Link>
               <Link to="/new">
-                <Button className="flex w-full">
+                <Button
+                  className="flex w-full"
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
                   <AddIcon className="mr-2 text-white" />
                   <p className="text-white">Add new</p>
                 </Button>
               </Link>
               <Link to="/settings">
-                <Button className="flex w-full">
+                <Button
+                  className="flex w-full"
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
                   <SettingsIcon className="mr-2 text-white" />
                   <p className="text-white">Settings</p>
                 </Button>

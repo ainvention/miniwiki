@@ -106,23 +106,27 @@ function Details({ params, wikis }) {
           )}
         </div>
         <CardContent>
-          <Typography gutterBottom variant="h2" className="uppercase">
+          <Typography
+            gutterBottom
+            variant="h5"
+            className="overflow-hidden uppercase"
+          >
             {wiki.title}
           </Typography>
           <div className="flex flex-col md:flex-row">
-            <Typography gutterBottom variant="h6">
+            <Typography gutterBottom variant="h7">
               Last Updated:{" "}
             </Typography>
-            <Typography gutterBottom variant="h6">
+            <Typography gutterBottom variant="h7">
               {dateFormat(wiki.created_at, "dS mmm yyyy, h:MM:ss TT")}
             </Typography>
           </div>
           <div className="flex flex-col md:flex-row">
-            <Typography gutterBottom variant="h6">
+            <Typography gutterBottom variant="h7">
               Last Updated By: {wiki.last_edited_author}
             </Typography>
           </div>
-          <Typography variant="body2" color="textSecondary" className="">
+          <Typography variant="h5" color="textSecondary">
             <MDEditor.Markdown
               source={wiki.content}
               className="w-auto break-words dark:text-gray-300"

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_wikis_related_wikis",
+  "info": {
+    "name": "RelatedWikis",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "intro": {
+      "type": "string"
+    },
+    "wikis": {
+      "collection": "wiki"
+    }
+  }
+}

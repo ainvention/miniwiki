@@ -14,7 +14,7 @@ function LoginChecker() {
   return (
     <div>
       {user ? (
-        <div className="flex flex-col items-center sm:flex-row">
+        <div className="flex flex-row items-center">
           <p className=" dark:text-gray-400">
             Hei, <span className="uppercase">{user.username}</span>
           </p>
@@ -26,7 +26,7 @@ function LoginChecker() {
             }}
           >
             <ExitToAppIcon className="mr-2 dark:text-red-600" />
-            <span className="dark:text-red-600">Logout</span>
+            <span className="hidden dark:text-red-600 sm:flex">Logout</span>
           </Button>
         </div>
       ) : (

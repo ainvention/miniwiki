@@ -1,36 +1,32 @@
 # App descriptions
 
-## Structure
+## APP Structure
 
 - backend (Strapi)
 - client (React)
 
-## Dependencies injection
+## Run Code Test(both Backend and Client server running is required)
 
 ```sh
-/mini-wiki/backend$ npm install
-/mini-wiki/client$ npm install
+### Run Development Server
+> /mini-wiki$ cd backend
+> /mini-wiki/backend$ yarn install
+> /mini-wiki/backend$ yarn develop
+
+### Run Client Server
+> /mini-wiki$ cd client
+> /mini-wiki/client$ yarn install
+> /mini-wiki/client$ yarn start
 ```
 
-## Run Code
+## Strapi Login as Admin User
 
 ```sh
-### 1. Use backend with Strapi
+If you succeed to build the backend server then,
+access to http://localhost:1337/admin
 
-> /mini-wiki/backend$ npm run develop
-> /mini-wiki/client$ npm run start
-
-// then, access to http://localhost:1337/admin
-
-Login with...
+Login credentials
 ex)
 email: 'admin@admin.io'
 password: 'Admin1234'
 ```
-
-## These features currently in development
-
-1. ~~Darkmode~~
-2. ~~Update a wiki~~
-3. need more refactoring about natural separation for state-management, business and presentational components
-4. searchable using a search-engine by Algolia or ElasticSearch
