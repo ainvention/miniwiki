@@ -98,7 +98,7 @@ function Details({ params, wikis }) {
                   image={wiki.image}
                   alt="wiki image"
                   title="wiki image title"
-                  className="absolute inset-x-0 z-50 w-full h-auto mx-auto my-auto bg-white rounded-md rounded-t-none shadow-xl"
+                  className="absolute inset-x-0 z-50 w-full h-auto mx-auto my-auto bg-white rounded-md shadow-xl"
                   onClick={handleImageOpen}
                 />
               </div>
@@ -114,15 +114,15 @@ function Details({ params, wikis }) {
             {wiki.title}
           </Typography>
           <div className="flex flex-col md:flex-row">
-            <Typography gutterBottom variant="h7">
+            <Typography gutterBottom variant="h6">
               Last Updated:{" "}
             </Typography>
-            <Typography gutterBottom variant="h7">
+            <Typography gutterBottom variant="h6">
               {dateFormat(wiki.created_at, "dS mmm yyyy, h:MM:ss TT")}
             </Typography>
           </div>
           <div className="flex flex-col md:flex-row">
-            <Typography gutterBottom variant="h7">
+            <Typography gutterBottom variant="h6">
               Last Updated By: {wiki.last_edited_author}
             </Typography>
           </div>
